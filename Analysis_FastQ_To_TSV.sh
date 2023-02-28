@@ -1,14 +1,11 @@
-# ref https://www.youtube.com/watch?v=iHkiQvxyr5c
-# ref https://www.melbournebioinformatics.org.au/tutorials/tutorials/variant_calling_gatk1/variant_calling_gatk1/
-
 # ====================================set PATH==================================== #
 
-ref="[PATH OF FOLDER]/reference/hg38.fa"
-known_sites="[PATH OF FOLDER]/reference/Homo_sapiens_assembly38.dbsnp138.vcf"
-aligned_reads="[PATH OF FOLDER]/aligned_reads"
-reads="[PATH OF FOLDER]/reads"
-results="[PATH OF FOLDER]/results"
-data="[PATH OF FOLDER]/data"
+ref="<PATH OF DIRECTORY>/reference/hg38.fa"
+known_sites="<PATH OF DIRECTORY>/reference/Homo_sapiens_assembly38.dbsnp138.vcf"
+aligned_reads="<PATH OF DIRECTORY>/aligned_reads"
+reads="<PATH OF DIRECTORY>/reads"
+results="<PATH OF DIRECTORY>/results"
+data="<PATH OF DIRECTORY>/data"
 
 # ====================================alignment==================================== #
 
