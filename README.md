@@ -65,7 +65,7 @@ gatk IndexFeatureFile -I <PATH OF DIRECTORY>/reference/dbsnp_138.hg38.vcf.gz
 Run `Analysis_FastQ_To_TSV.sh`
 ```shell
 cd scripts
-./Analysis_FastQ_To_TSV.sh
+bash Analysis_FastQ_To_TSV.sh
 ```
 ## Reference
 
