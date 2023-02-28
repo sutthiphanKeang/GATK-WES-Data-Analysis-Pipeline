@@ -4,14 +4,14 @@ Project Description
 ## Installation
 
 ### System requirements
-* a
-* b
+* Unix-style OS (Linux, MacOSX, etc)
+* Java 1.8
 
 ### Tools
-* [GATK version 4.3.0.0]()
-* [BWA version 0.7.17]()
-* [SAMTOOLS version 1.16.1]()
-* [FASTQC version 0.11.9]()
+* [GATK version 4.3.0.0](https://gatk.broadinstitute.org/hc/en-us/articles/360036194592-Getting-started-with-GATK4)
+* [BWA version 0.7.17](https://bio-bwa.sourceforge.net/)
+* [SAMTOOLS version 1.16.1](http://www.htslib.org/download/)
+* [FASTQC version 0.11.9](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
 ## Setup
 
@@ -19,7 +19,7 @@ how to highlight `example`
 
 ## Usage
 
-how to code line
-```bash
-this is code line
+run `Analysis_FastQ_To_TSV.sh`
+```shell
+./Analysis_FastQ_To_TSV.sh
 ```
