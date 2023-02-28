@@ -15,11 +15,20 @@ Project Description
 
 ## Setup
 
-how to highlight `example`
+Create directory
+```shell
+cd $HOME
+mkdir aligned_reads reads scripts results data
+```
 
 ## Usage
 
-run `Analysis_FastQ_To_TSV.sh`
+Run `Analysis_FastQ_To_TSV.sh`
 ```shell
+cd scripts
 ./Analysis_FastQ_To_TSV.sh
 ```
+## Reference
+
+* [WGS Variant Calling](https://www.youtube.com/watch?v=iHkiQvxyr5c)
+* [Variant calling using GATK4](https://www.melbournebioinformatics.org.au/tutorials/tutorials/variant_calling_gatk1/variant_calling_gatk1/)
