@@ -18,7 +18,7 @@ Project Description
 Create directory
 ```shell
 cd $HOME
-mkdir aligned_reads reads scripts results data
+mkdir aligned_reads reads scripts results data reference
 ```
 
 ## Usage
