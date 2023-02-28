@@ -58,7 +58,7 @@ gatk HaplotypeCaller \
     -I ${aligned_reads}/[DNA_ID]_sorted_dedup_bqsr_reads.bam \
     -L chr9 \
     -ERC GVCF \
-    -O ${results}raw_variants_chr9.g.vcf.gz
+    -O ${results}/raw_variants_chr9.g.vcf.gz
 
 
 
@@ -67,7 +67,7 @@ gatk HaplotypeCaller \
 
 gatk GenotypeGVCFs \
     -R ${ref} \
-    -V ${results}raw_variants_chr9.g.vcf.gz \
+    -V ${results}/raw_variants_chr9.g.vcf.gz \
     -L chr9 \
     -O ${results}/probability_variants_chr9.vcf.gz
 
@@ -78,7 +78,7 @@ gatk GenotypeGVCFs \
 
 gatk VariantRecalibrator \
     -R ${ref} \
-    -V ${results}/teacher_AB/probability_variants_chr9_AB_KT.vcf.gz \
+    -V ${results}/probability_variants_chr9.vcf.gz \
     --max-gaussians 6 \
     --resource:hapmap,known=false,training=true,truth=true,prior=15.0 ${reference}/hapmap_3.3.hg38.vcf.gz \
     --resource:omni,known=false,training=true,truth=true,prior=12.0 ${reference}/1000G_omni2.5.hg38.vcf.gz \
@@ -87,8 +87,8 @@ gatk VariantRecalibrator \
     -an QD -an MQRankSum -an ReadPosRankSum -an FS -an MQ -an SOR -an DP \
     --trust-all-polymorphic \
     -mode BOTH \
-    -O ${results}/teacher_AB/variants_chr9.recal \
-    --tranches-file ${results}/teacher_AB/variants_chr9.tranches
+    -O ${results}/variants_chr9.recal \
+    --tranches-file ${results}/variants_chr9.tranches
 
 
 
@@ -100,8 +100,8 @@ gatk ApplyVQSR \
     -V ${results}/probability_variants_chr9.vcf.gz \
     -O ${results}/variants_chr9.vqsr.vcf \
     --truth-sensitivity-filter-level 99.0 \
-    --tranches-file ${results}/teacher_AB/variants_chr9.tranches\
-    --recal-file ${results}/teacher_AB/variants_chr9.recal \
+    --tranches-file ${results}/variants_chr9.tranches \
+    --recal-file ${results}/variants_chr9.recal \
     -mode BOTH
 
 
@@ -130,6 +130,6 @@ gatk VariantFiltration \
 gatk VariantsToTable \
     -V ${results}/variants_chr9.vqsr.varfilter.vcf \
     -F CHROM -F POS -F TYPE -F REF -F ALT -GF GT \
-    -O ${results}/tearcher/variants_chr9.vqsr.varfilter.pass.tsv
+    -O ${results}/variants_chr9.vqsr.varfilter.pass.tsv
 
 # ====================================finish==================================== #
