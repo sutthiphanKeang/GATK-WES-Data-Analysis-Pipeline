@@ -5,7 +5,7 @@ Project Description
 
 ### System requirements
 * Unix-style OS (Linux, MacOSX, etc)
-* Java 1.8
+* Openjdk 8
 
 ### Tools
 * [GATK version 4.3.0.0](https://gatk.broadinstitute.org/hc/en-us/articles/360036194592-Getting-started-with-GATK4)
