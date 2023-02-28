@@ -55,6 +55,10 @@ gatk IndexFeatureFile -I <PATH OF DIRECTORY>/reference/1000G_phase1.snps.high_co
 gatk IndexFeatureFile -I <PATH OF DIRECTORY>/reference/dbsnp_138.hg38.vcf.gz
 ```
 
+Download known sites files for BQSR from GATK resource bundle
+```shell
+wget -P <PATH OF DIRECTORY>/reference https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf
+```
 ## Usage
 
 Run `Analysis_FastQ_To_TSV.sh`
