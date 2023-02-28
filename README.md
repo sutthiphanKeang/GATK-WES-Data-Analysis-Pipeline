@@ -1,5 +1,5 @@
 # GATK-WES-Data-Analysis-Pipeline (*NOT AVAILABLE)
-Project Description
+This process is part of the framework of the Whole-Exome Sequencing (WES) Analysis for ABO Subgroups Identification research project to analyze DNA and obtain results in the form of a tsv file containing necessary data for subsequent processes, as shown in the research report, specified in the Proposed Framework.
 
 ## Installation
 
@@ -21,6 +21,39 @@ cd $HOME
 mkdir aligned_reads reads scripts results data reference
 ```
 
+Download data file using 
+(you can skip this step if you already have inputs data. It must be contained in the reads folder.)
+```shell
+wget -P [PATH OF FOLDER]/reads [DNA_FORWARD].fastq.gz
+wget -P [PATH OF FOLDER]/reads [DNA_REVERSE].fastq.gz 
+```
+Download reference file using
+```shell
+wget -P [PATH OF FOLDER]/reference https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
+gunzip [PATH OF FOLDER]/reference/hg38.fa.gz
+```
+
+Index refernce file
+```shell
+samtools faidx [PATH OF FOLDER]/reference/reference/hg38.fa
+```
+
+Create sequence dictionary for refernce file
+```shell
+gatk CreateSequenceDictionary R=[PATH OF FOLDER]/reference/hg38.fa O=[PATH OF FOLDER]/reference/hg38.dict
+```
+Download reference file for VariantRecalibrator and creact index for these files
+```shell
+wget -P [PATH OF FOLDER]/reference ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/hg38/hapmap_3.3.hg38.vcf.gz
+wget -P [PATH OF FOLDER]/reference ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/hg38/1000G_omni2.5.hg38.vcf.gz
+wget -P [PATH OF FOLDER]/reference ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/hg38/1000G_phase1.snps.high_confidence.hg38.vcf.gz
+wget -P [PATH OF FOLDER]/reference ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/hg38/dbsnp_138.hg38.vcf.gz
+
+gatk IndexFeatureFile -I [PATH OF FOLDER]/reference/hapmap_3.3.hg38.vcf.gz 
+gatk IndexFeatureFile -I [PATH OF FOLDER]/reference/1000G_omni2.5.hg38.vcf.gz
+gatk IndexFeatureFile -I [PATH OF FOLDER]/reference/1000G_phase1.snps.high_confidence.hg38.vcf.gz
+gatk IndexFeatureFile -I [PATH OF FOLDER]/reference/dbsnp_138.hg38.vcf.gz
+```
 ## Usage
 
 Run `Analysis_FastQ_To_TSV.sh`
