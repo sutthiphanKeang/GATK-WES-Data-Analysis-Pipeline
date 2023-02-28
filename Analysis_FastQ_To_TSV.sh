@@ -6,6 +6,7 @@ aligned_reads="<PATH OF DIRECTORY>/aligned_reads"
 reads="<PATH OF DIRECTORY>/reads"
 results="<PATH OF DIRECTORY>/results"
 data="<PATH OF DIRECTORY>/data"
+reference="<PATH OF DIRECTORY>/reference"
 
 # ====================================alignment==================================== #
 
@@ -79,10 +80,10 @@ gatk VariantRecalibrator \
     -R ${ref} \
     -V ${results}/teacher_AB/probability_variants_chr9_AB_KT.vcf.gz \
     --max-gaussians 6 \
-    --resource:hapmap,known=false,training=true,truth=true,prior=15.0 [PATH OF FOLDER]/reference/hapmap_3.3.hg38.vcf.gz \
-    --resource:omni,known=false,training=true,truth=true,prior=12.0 [PATH OF FOLDER]/reference/1000G_omni2.5.hg38.vcf.gz \
-    --resource:1000G,known=false,training=true,truth=false,prior=10.0 [PATH OF FOLDER]/reference/1000G_phase1.snps.high_confidence.hg38.vcf.gz \
-    --resource:dbsnp,known=true,training=false,truth=false,prior=7.0 [PATH OF FOLDER]/reference/dbsnp_138.hg38.vcf.gz \
+    --resource:hapmap,known=false,training=true,truth=true,prior=15.0 ${reference}/hapmap_3.3.hg38.vcf.gz \
+    --resource:omni,known=false,training=true,truth=true,prior=12.0 ${reference}/1000G_omni2.5.hg38.vcf.gz \
+    --resource:1000G,known=false,training=true,truth=false,prior=10.0 ${reference}/1000G_phase1.snps.high_confidence.hg38.vcf.gz \
+    --resource:dbsnp,known=true,training=false,truth=false,prior=7.0 ${reference}/dbsnp_138.hg38.vcf.gz \
     -an QD -an MQRankSum -an ReadPosRankSum -an FS -an MQ -an SOR -an DP \
     --trust-all-polymorphic \
     -mode BOTH \
