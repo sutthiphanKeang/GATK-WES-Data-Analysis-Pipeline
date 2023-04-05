@@ -4,7 +4,7 @@ This process is part of the framework of the Whole-Exome Sequencing (WES) Analys
 ## Installation
 
 ### System requirements
-* Unix-style OS (Linux, MacOSX, etc)
+* Unix-style OS (Linux, MacOSX, etc.)
 * Openjdk 8
 
 ### Tools
