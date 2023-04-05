@@ -106,7 +106,7 @@ gatk ApplyVQSR \
 
 
 
-# ------4. GATK------ VariantFiltration
+# ------5. GATK------ VariantFiltration
 # output: .vqsr.varfilter.vcf file in result
 
 gatk VariantFiltration \
@@ -124,7 +124,7 @@ gatk VariantFiltration \
 
 
 
-# ------4. GATK------ VariantsToTable
+# ------6. GATK------ VariantsToTable
 # output: .vqsr.varfilter.pass.tsv file in result
 
 gatk VariantsToTable \
