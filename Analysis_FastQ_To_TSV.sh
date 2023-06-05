@@ -10,7 +10,7 @@ reference="<PATH OF DIRECTORY>/reference"
 
 # ====================================alignment==================================== #
 
-# ------1. Run fast qc------ check quility
+# ------1. Run fast qc------ check quality
 # output: fastqc.html, fastqc.zip in reads folder.
 
 fastqc ${reads}/[DNA_FORWARD].fastq.gz -o ${reads}/
